@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   NotFound.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/11 23:49:09 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/05/12 00:41:07 by bcarolle         ###   ########.fr       */
+/*   Created: 2024/05/12 00:46:07 by bcarolle          #+#    #+#             */
+/*   Updated: 2024/05/12 00:46:51 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.tpp"
+#include "NotFound.hpp"
 
-int	main()
+const char *NotFound::what() const throw()
 {
-	std::vector<int> vecteur;
-
-	for (int i = 0; i < 5; i++)
-		vecteur.push_back(i);
-	try
-	{
-		std::cout << easyfind(vecteur, 2) << std::endl;
-		std::cout << easyfind(vecteur, 18) << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	return ("Not Found");
 }

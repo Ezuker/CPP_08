@@ -6,7 +6,7 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 23:54:30 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/05/12 00:34:32 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/05/12 00:38:45 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	&easyfind(T array, int toFind)
 		if (*it == toFind)
 			return *it;
 	}
-	throw std::exception();
+	throw (NotFound());
 }
 
 #endif

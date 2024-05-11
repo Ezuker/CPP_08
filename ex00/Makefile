@@ -25,6 +25,7 @@ _IWHITE=$'\033[47m
 
 SRC = \
 	main.cpp \
+	NotFound.cpp \
 
 INCLUDES = \
 	-I . \
