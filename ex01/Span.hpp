@@ -6,7 +6,7 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 00:50:26 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/05/13 14:11:33 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/05/13 21:41:28 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <algorithm>
 # include <vector>
 # include <stdexcept>
+# include <iostream>
 
 class Span
 {
@@ -26,11 +27,20 @@ class Span
 
 		Span	&operator=(const Span &rhs);
 		
-		void			addNumber(unsigned int);
+		void			addNumber(int number);
 		unsigned int	shortestSpan();
 		unsigned int	longestSpan();
+		
+		template <typename Iterator>
+		void			addNumber(Iterator it, Iterator ite)
+		{
+			if (this->_maxLength - this->_value.size() < (unsigned long int)std::distance(it, ite))
+				throw std::length_error("Array can't add all of those numbers");
+			std::copy(it, ite, std::back_inserter(this->_value));
+		}
 	private:
-		std::vector<unsigned int>	_value;
+		std::vector<int>	_value;
+		unsigned int		_maxLength;
 };
 
 #endif
