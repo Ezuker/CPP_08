@@ -25,7 +25,6 @@ _IWHITE=$'\033[47m
 
 SRC = \
 	main.cpp \
-	Span.cpp \
 
 INCLUDES = \
 	-I . \
