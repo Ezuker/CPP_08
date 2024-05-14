@@ -6,7 +6,7 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 23:05:41 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/05/14 18:47:27 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/05/14 18:50:13 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	mymain()
 int main()
 {
 	MutantStack<int> mstack;
-	// std::list<int> mstack;
 	mstack.push(5);
 	mstack.push(17);
 	std::cout << mstack.top() << std::endl;
