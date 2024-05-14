@@ -6,7 +6,7 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 00:50:26 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/05/13 21:41:28 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:34:18 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Span
 		unsigned int	shortestSpan();
 		unsigned int	longestSpan();
 		
-		template <typename Iterator>
+		template <class Iterator>
 		void			addNumber(Iterator it, Iterator ite)
 		{
 			if (this->_maxLength - this->_value.size() < (unsigned long int)std::distance(it, ite))
