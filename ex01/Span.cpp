@@ -6,7 +6,7 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 00:50:47 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/05/13 21:59:02 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/05/17 16:56:34 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,38 +41,30 @@ void	Span::addNumber(int number)
 
 unsigned int	Span::shortestSpan()
 {
-	int	min_dist = 0x7FFFFFFF;
+	unsigned int	min_dist = 0xFFFFFFFF;
 
 	if (this->_value.size() <= 1)
 		throw std::logic_error("Vector size must be superior to 1");
-	std::vector<int>::iterator it;
-	std::vector<int>::iterator ite = this->_value.end();
-	for (it = this->_value.begin(); it != ite; ++it)
-	{
-		for (std::vector<int>::iterator it2 = this->_value.begin(); it2 != ite; ++it2)
-		{
-			if (it != it2 && min_dist > abs(*it - *it2))
-				min_dist = abs(*it - *it2);
-		}
-	}
-	return abs(min_dist);
+
+	std::vector<int> cpy = this->_value;
+	std::sort(cpy.begin(), cpy.end());
+	
+	for (std::vector<int>::iterator it = cpy.begin(); it != cpy.end() - 1; ++it) {
+        unsigned int diff = *(it + 1) - *it;
+        if (diff < min_dist) {
+            min_dist = diff;
+        }
+    }
+
+    return min_dist;
 }
 
 unsigned int	Span::longestSpan()
 {
-	int	tmp_min = 0x7FFFFFFF;
-	int	tmp_max = 0x80000000;
-
 	if (this->_value.size() <= 1)
 		throw std::logic_error("Vector size must be superior to 1");
-	std::vector<int>::iterator it;
-	std::vector<int>::iterator ite = this->_value.end();
-	for (it = this->_value.begin(); it != ite; ++it)
-	{
-		if (*it > tmp_max)
-			tmp_max = *it;
-		if (*it < tmp_min)
-			tmp_min = *it;
-	}
-	return (tmp_max - tmp_min);
+	
+	std::vector<int> cpy = this->_value;
+	std::sort(cpy.begin(), cpy.end());
+	return (cpy.back() - cpy.front());
 }
