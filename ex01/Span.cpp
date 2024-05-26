@@ -6,7 +6,7 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 00:50:47 by bcarolle          #+#    #+#             */
-/*   Updated: 2024/05/17 16:56:34 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/05/26 12:50:13 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ unsigned int	Span::shortestSpan()
 	std::sort(cpy.begin(), cpy.end());
 	
 	for (std::vector<int>::iterator it = cpy.begin(); it != cpy.end() - 1; ++it) {
-        unsigned int diff = *(it + 1) - *it;
-        if (diff < min_dist) {
-            min_dist = diff;
-        }
-    }
+		unsigned int diff = *(it + 1) - *it;
+		if (diff < min_dist) {
+			min_dist = diff;
+		}
+	}
 
-    return min_dist;
+	return min_dist;
 }
 
 unsigned int	Span::longestSpan()
